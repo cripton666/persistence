@@ -13,16 +13,15 @@ function Ctrl_c(){
 }
 
 function persistencia {
-    sudo su
     setxkbmap es 
     xterm -hold -e "fdisk -l" &
     airodump_xterm_PID=$!
     mkdir -p /mnt/linux
     echo -n -e "\e[0;37m[*] Elija Nombre de la Usb : \e[0m"
     read usb 
-    mount /dev/$usb/ mnt/linux
+    mount /dev/$usb /mnt/linux
     echo "/ union" > /mnt/linux/persistence.conf
-    umount /dev/$usb/
+    umount /dev/$usb
     reboot
 }
 persistencia
