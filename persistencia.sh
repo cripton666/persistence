@@ -17,11 +17,12 @@ function persistencia {
     xterm -hold -e "fdisk -l" &
     airodump_xterm_PID=$!
     mkdir -p /mnt/linux
-    echo -n -e "\e[0;37m[*] Elija Nombre de la Usb : \e[0m"
+    echo -n -e "\e[0;37m[*] Elija Nombre de la Usb:\e[0m"
     read usb 
     mount /dev/$usb /mnt/linux
     echo "/ union" > /mnt/linux/persistence.conf
     umount /dev/$usb
+    sleep 20s
     reboot
 }
 persistencia
