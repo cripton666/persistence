@@ -23,6 +23,7 @@ function persistencia {
     echo "/ union" > /mnt/linux/persistence.conf
     umount /dev/$usb
     sleep 20s
-    reboot
 }
 persistencia
+sleep 15s 
+reboot
